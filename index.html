@@ -21,14 +21,15 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
     <!-- Préchargement des CSS critiques -->
-    <link rel="preload" href="./assets/style/main.min.css" as="style">
+    <link rel="preload" href="./assets/style/main.css" as="style">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" as="style">
     <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Playfair:opsz,wght@14,300;14,400;18,500;18,600;24,700&display=swap"
         as="style">
+    <link rel="preload" as="image" href="./assets/images/Portrait-femme-Bretagne-22_20-phone.webp" fetchpriority="high">
 
     <!-- CSS principaux -->
-    <link rel="stylesheet" href="./assets/style/main.min.css">
+    <link rel="stylesheet" href="./assets/style/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Playfair:opsz,wght@14,300;14,400;18,500;18,600;24,700&display=swap"
@@ -82,13 +83,16 @@
         <!-- MENUS *2 -->
         <div class="container-nav">
             <div class="container-logo">
-                <div id="img-logo">
-                    <img class="img-logo" srcset="./assets/images/Logo-Unizus-80.webp 80w,
+                <div id="img-logo"><a href="./index.html">
+                        <img class="img-logo" srcset="./assets/images/Logo-Unizus-80.webp 80w,
                      ./assets/images/Logo-Unizus.webp 50w,
                      ./assets/images/logo_Unizus_photographie.png 32w" sizes="(max-width: 768px) 50px, 80px"
-                        src="./assets/images/Logo-Unizus-80.webp" alt="Logo Unizus photographie" width="80" height="80">
+                            src="./assets/images/Logo-Unizus-80.webp" alt="Logo Unizus photographie" width="80"
+                            height="80">
 
+                    </a>
                     <img class="burger-bar" src="./assets/images/icons8-menu-48.png" alt="menu burger">
+
                 </div>
                 <!-- MENU PHONE -->
                 <nav class="menu-burger">
@@ -177,11 +181,10 @@
             <!-- SLIDE COULISSANT -->
             <div class="slider-track">
                 <div class="slide active">
-                    <img srcset="./assets/images/Portrait-femme-Bretagne-22_20-phone.webp  640w,
-                                ./assets/images/Portrait-femme-Bretagne-22_20.webp 1200w" loading=" eager"
-                        fetchpriority="high" sizes="(max-width: 768px) 100vw, 1200px"
-                        src="./assets/images/Portrait-femme-Bretagne-22_20.webp"
-                        alt="portrait femme d'Unizus photographie" width="640" height="500">
+                    <img srcset="./assets/images/Portrait-femme-Bretagne-22_20-phone.webp 600w,
+                ./assets/images/Portrait-femme-Bretagne-22_20.webp 600w" loading="eager" fetchpriority="high"
+                        sizes="(max-width: 768px) 100vw, 600px" src="./assets/images/Portrait-femme-Bretagne-22_20.webp"
+                        alt="portrait femme d'Unizus photographie" width="600" height="337">
                     <div class="slide-content">
                         <h2>Portrait Luxe</h2>
                         <p>Elègance intemporelle. Noir et blanc subliment l’essence du luxe.
@@ -189,11 +192,10 @@
                     </div>
                 </div>
                 <div class="slide">
-                    <img srcset="./assets/images/portrait-femme-bretagne-22_15-phone.webp 640w,
-             ./assets/images/portrait-femme-bretagne-22_15.webp 1200w" loading="lazy"
-                        sizes="(max-width: 768px) 100vw, 1200px"
-                        src="./assets/images/Portrait-femme-Bretagne-22_15.webp"
-                        alt="portrait femme d'Unizus photographie" width="640" height="500">
+                    <img srcset="./assets/images/portrait-femme-bretagne-22_15-phone.webp 600w,
+             ./assets/images/portrait-femme-bretagne-22_15.webp 600w" loading="lazy"
+                        sizes="(max-width: 768px) 100vw, 600px" src="./assets/images/Portrait-femme-Bretagne-22_15.webp"
+                        alt="portrait femme d'Unizus photographie" width="600" height="337">
                     <div class="slide-content">
                         <h2>Portrait Classique</h2>
                         <p>Les lumières naturelles subliment vos couleurs. Portrait vibrant, authentique et élègant.
@@ -201,10 +203,10 @@
                     </div>
                 </div>
                 <div class="slide">
-                    <img srcset="./assets/images/Corporate-Portrait-phone.webp 640w,
-                                 ./assets/images/Corporate-Portrait_1.webp 1200w" loading="lazy"
-                        sizes="(max-width: 768px) 100vw, 1200px" src="./assets/images/Corporate-Portrait_1.webp"
-                        alt="portrait Corporate d'Unizus photographie" width="640" height="500">
+                    <img srcset="./assets/images/Corporate-Portrait-phone.webp 600w,
+                                 ./assets/images/Corporate-Portrait_1.webp 600w" loading="lazy"
+                        sizes="(max-width: 768px) 100vw, 600px" src="./assets/images/Corporate-Portrait_1.webp"
+                        alt="portrait Corporate d'Unizus photographie" width="600" height="337">
                     <div class="slide-content">
                         <h2>Portrait Corporate</h2>
                         <p>Portrait corporate d’exception. Qualité artistique et élègance professionnelle. Lumière
@@ -212,11 +214,10 @@
                     </div>
                 </div>
                 <div class="slide">
-                    <img srcset="./assets/images/Mariage-Bretagne22-Plevenon_phone.webp 640w,
-                                ./assets/images/Mariage-Bretagne22-Plevenon_13.jpg 1200w" loading="lazy"
-                        sizes="(max-width: 768px) 100vw, 1200px"
-                        src="./assets/images/Mariage-Bretagne22-Plevenon_13.jpg"
-                        alt="portrait mariage d'Unizus photographie">
+                    <img srcset="./assets/images/Mariage-Bretagne22-Plevenon_phone.webp 600w,
+                                ./assets/images/Mariage-Bretagne22-Plevenon_13.jpg 600w" loading="lazy"
+                        sizes="(max-width: 768px) 100vw, 600px" src="./assets/images/Mariage-Bretagne22-Plevenon_13.jpg"
+                        alt="portrait mariage d'Unizus photographie" width="600" height="337">
                     <div class="slide-content">
                         <h2>Mariage</h2>
                         <p>Portraits de mariage intemporels. Emotions en noir & blanc, lumières naturelles
@@ -586,7 +587,7 @@
             <p class="footer__copy"><small>&copy; 2018 </small><span class="gold">Unizus photographie</span>. Tous
                 droits
                 réservés.</p>
-            <p><a href="./accessibilite.html">Accessibilité : partiellement conforme</a></p>
+            <p><a href="./accessibilite.html" target="_blank">Accessibilité : partiellement conforme</a></p>
         </div>
     </footer>
 
@@ -597,12 +598,12 @@
 
 
     <!-- script  animation page -->
-    <script src="assets/js/index.js" defer></script>
+    <script src="./assets/js/index.js" defer></script>
     <!-- chargement des articles  -->
     <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.0/dist/purify.min.js" defer></script>
 
 
-    <script src="assets/js/gestion_articles.min.js" defer></script>
+    <script src="./assets/js/gestion_articles.min.js" defer></script>
     <!-- script tarte au citron -->
 
 

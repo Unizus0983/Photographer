@@ -5,14 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Déclaration d'accessibilité - Unizus Photographie</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Photographe de mariage et portrait professionnel à Ardes (62). Unizus-art propose des services de photographie personnalisés pour capturer vos moments précieux.">
-    <title>Photographe de mariage et portrait professionnel Ardes(62),Unizus-art</title>
-    <link rel="shortcut icon" href="./assets/images/logo_Unizus_photographie.png" type="image/x-icon">
 
     <link rel="shortcut icon" href="./assets/images/logo_Unizus_photographie.png" type="image/x-icon">
+
+
 
     <!-- DNS Prefetch pour compatibilité étendue -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -26,14 +22,14 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
     <!-- Préchargement des CSS critiques -->
-    <link rel="preload" href="./assets/style/main.min.css" as="style">
+    <link rel="preload" href="./assets/style/variables.css" as="style">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" as="style">
     <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Playfair:opsz,wght@14,300;14,400;18,500;18,600;24,700&display=swap"
         as="style">
 
     <!-- CSS principaux -->
-    <link rel="stylesheet" href="./assets/style/main.min.css">
+    <link rel="stylesheet" href="./assets/style/variables.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Playfair:opsz,wght@14,300;14,400;18,500;18,600;24,700&display=swap"
@@ -72,6 +68,7 @@
             padding: 20px;
         }
 
+
         .badge {
             background: var(--primary-dark);
             color: white;
@@ -82,6 +79,22 @@
 
         .return:hover {
             color: var(--primary);
+        }
+
+        strong {
+            font-weight: 500;
+        }
+
+        .legal-notice {
+            border-top: 1px solid var(--gray-300);
+            padding-top: var(--space-8);
+            font-size: var(--text-sm);
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: var(--space-5);
         }
     </style>
 </head>
@@ -129,9 +142,10 @@
         <li>Saisir la Commission des droits et de l'autonomie des personnes handicapées (CDAPH)</li>
     </ul>
 
-    <p><em>Cette déclaration a été mise à jour le [DATE DU JOUR].</em></p>
 
-    <footer>
+
+    <footer class="legal-notice">
+        <p><em>Cette déclaration a été mise à jour le [DATE DU JOUR].</em></p>
         <a class="return" href="index.html">← Retour au site</a>
     </footer>
 </body>

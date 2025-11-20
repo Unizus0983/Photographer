@@ -1,4 +1,4 @@
-// ✅ Version encore légèrement améliorée
+// ✅ Version corrigée du slider
 window.addEventListener('load', function () {
     // Petit délai pour laisser le navigateur finir le rendu
     setTimeout(function () {
@@ -6,6 +6,13 @@ window.addEventListener('load', function () {
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.slider-dot');
         const slider = document.querySelector('.slider-container');
+
+        // Vérifier si tous les éléments du slider existent
+        if (!track || !slides.length || !dots.length || !slider) {
+            console.log('Slider elements not found on this page');
+            return; // Arrêter l'exécution si le slider n'existe pas
+        }
+
         let currentIndex = 0;
         const slideCount = slides.length;
         let interval;
@@ -24,7 +31,7 @@ window.addEventListener('load', function () {
 
         function startAutoSlide() {
             if (window.innerWidth < 768) return; // Mobile = pas d'auto-slide
-
+            stopAutoSlide(); // Arrêter l'intervalle existant
             interval = setInterval(() => {
                 currentIndex = (currentIndex + 1) % slideCount;
                 updateSlider();
@@ -32,7 +39,10 @@ window.addEventListener('load', function () {
         }
 
         function stopAutoSlide() {
-            clearInterval(interval);
+            if (interval) {
+                clearInterval(interval);
+                interval = null;
+            }
         }
 
         // Événements
@@ -68,27 +78,34 @@ if (burgerBtn && closeBtn && menuBurger) {
     });
 }
 
-// BUTTON SCROLL
-document.getElementById('backToTop').addEventListener('click', function () {
-    const start = window.scrollY; //first position begenning in px
-    const end = 0; //position in px
-    const duration = 2500; // duration animation in ms (2s here)
-    const distance = start - end; //distance to do in px to start to end with soustraction
-    let startTime = null; //time distance for beginning
+// BUTTON SCROLL - CORRIGÉ avec vérification
+document.addEventListener('DOMContentLoaded', function () {
+    const backToTopBtn = document.getElementById('backToTop');
 
-    //timestamp → automatically provided by requestAnimationFrame(method JS), this is the time in milliseconds since the page was opened
+    // Vérifier si le bouton existe avant d'ajouter l'événement
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', function () {
+            const start = window.scrollY; // position de départ en px
+            const end = 0; // position d'arrivée en px
+            const duration = 2500; // durée de l'animation en ms (2.5s ici)
+            const distance = start - end; // distance à parcourir en px
+            let startTime = null; // temps de départ pour l'animation
 
-    function scrollStep(timestamp) {
-        if (!startTime) startTime = timestamp;
-        const elapsed = timestamp - startTime;
-        const progress = Math.min(elapsed / duration, 1); // linear
+            function scrollStep(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const elapsed = timestamp - startTime;
+                const progress = Math.min(elapsed / duration, 1); // progression linéaire
 
-        window.scrollTo(0, start - distance * progress);
+                window.scrollTo(0, start - distance * progress);
 
-        if (progress < 1) {
+                if (progress < 1) {
+                    requestAnimationFrame(scrollStep);
+                }
+            }
+
             requestAnimationFrame(scrollStep);
-        }
+        });
+    } else {
+        console.log('Back to top button not found on this page');
     }
-
-    requestAnimationFrame(scrollStep);
 });

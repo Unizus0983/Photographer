@@ -475,13 +475,15 @@ h5 {
 }
 
 .img-logo {
-    width: auto;
-    height: auto;
+    min-width: 32px;
     max-width: 80px;
+    width: 100%;
+    height: auto;
     cursor: pointer;
-
+    object-fit: contain;
     border-radius: 5%;
     filter: drop-shadow(0 0 0.5rem rgb(211, 186, 48));
+    aspect-ratio: 1;
 }
 /*=============== MENU BUREAU ===================0k*/
 .nav-desktop {
@@ -733,6 +735,30 @@ p .strong {
 
 /* ===========Slide section ================== ok */
 .services {
+    max-height: 500px;
+    height: auto;
+    padding: var(--space-8);
+    background-color: var(--surface-inverse);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Slider Fix */
+/* ===========Slide section ================== */
+.services {
+    max-height: 500px;
+    height: auto;
+    padding: var(--space-8);
+    background-color: var(--surface-inverse);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Slider Fix - CORRECTION MINIMALE */
+/* ===========Slide section ================== ok */
+.services {
     min-height: 500px;
     height: auto;
     padding: var(--space-8);
@@ -745,19 +771,20 @@ p .strong {
 /* Slider Fix */
 .slider-container {
     position: relative;
-    max-width: 640px;
-    height: 60vh;
-    max-height: 500px;
+    max-width: 600px;
+    width: 100%;
+
     margin: 0 auto;
     overflow: hidden;
     aspect-ratio: 16/9; /* Ratio constant */
-    min-height: 400px; /* Hauteur minimale de secours */
+    height: 45vh; /* Plus raisonnable sur mobile */
+    max-height: 300px; /* Limite pour éviter trop grand */
 }
 
 .slider-track {
     display: flex;
     height: 100%;
-    transition: transform 2s ease;
+    transition: transform 0.8 ease;
     width: 100%;
 }
 
@@ -771,7 +798,7 @@ p .strong {
     height: 100%;
     object-fit: cover;
     object-position: center; /* Garantit le cadrage parfait */
-    will-change: transform; /* Optimise les performances */
+    content-visibility: auto;
     border-radius: var(--radius);
     display: block; /* Évite l'espace sous l'image */
     background: var(--gray-100); /* Placeholder couleur */
@@ -1214,6 +1241,9 @@ label {
     color: var(--gray-900);
     padding: var(--space-8);
 }
+.legal-container strong {
+    font-weight: 500;
+}
 
 .legal-section {
     margin-bottom: var(--space-24);
@@ -1223,7 +1253,7 @@ label {
 }
 
 .legal-section h2 {
-    color: var(--primary);
+    color: var(--primary-dark);
     font-family: var(--font-accent);
     margin-bottom: var(--space-8);
     text-transform: uppercase;
@@ -1251,92 +1281,14 @@ label {
     border-top: 1px solid var(--gray-300);
     padding-top: var(--space-8);
     font-size: var(--text-sm);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: var(--space-5);
 }
 
-/*********************fin mention légale********************/
-
-/* Responsive  Mobile → 768px → 880px → 1024px → 1200px*/
-
-/***********************MEDIAS********************* */
-@media (min-width: 768px) {
-    /* Corrections tablette */
-    .container-card {
-        flex-wrap: nowrap;
-        gap: var(--space-6);
-    }
-
-    .card {
-        min-height: 350px; /* Tablet */
-    }
-
-    h1 {
-        font-size: var(--text-3xl);
-    }
-    h2 {
-        font-size: var(--text-2xl);
-    }
-}
-
-@media screen and (min-width: 880px) {
-    h1 {
-        font-size: var(--text-4xl);
-    }
-
-    h2 {
-        font-size: var(--text-3xl);
-    }
-
-    .desktop {
-        display: flex;
-    }
-    .menu-burger {
-        display: none;
-    }
-    .burger-bar {
-        visibility: hidden;
-    }
-    .slide-content h2 {
-        line-height: var(--leading-normal);
-    }
-
-    .container-card {
-        flex-wrap: nowrap;
-        column-gap: var(--space-8);
-    }
-
-    /* section  */
-    .container-corporate,
-    .contact {
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas: 'picture article';
-        align-items: stretch;
-        column-gap: var(--space-5);
-    }
-
-    .picture img {
-        max-height: none;
-        height: 100%;
-    }
-    .contact-describe {
-        grid-area: article;
-    }
-    .footer__grid {
-        grid-template-columns: 25% 25% 40% 10%;
-        justify-content: center;
-
-        gap: var(--space-3);
-        padding: var(--space-8) var(--space-16);
-    }
-
-    .footer__col {
-        text-align: left;
-    }
-
-    .footer__hours .hours__item span {
-        width: auto;
-        margin-right: var(--space-3);
-    }
-}
 /* ======gestion des articles ============ */
 .articles-section {
     margin: 0 auto;
@@ -1433,6 +1385,96 @@ label {
     min-width: 90px;
     max-width: fit-content;
     width: 70%;
+}
+
+/*********************fin mention légale********************/
+
+/* Responsive  Mobile → 768px → 880px → 1024px → 1200px*/
+
+/***********************MEDIAS********************* */
+@media (min-width: 768px) {
+    /* Corrections tablette */
+    .container-card {
+        flex-wrap: nowrap;
+        gap: var(--space-6);
+    }
+
+    .card {
+        min-height: 350px; /* Tablet */
+    }
+
+    h1 {
+        font-size: var(--text-3xl);
+    }
+    h2 {
+        font-size: var(--text-2xl);
+    }
+    .slider-container {
+        height: 60vh;
+        max-height: 337px;
+    }
+}
+
+@media screen and (min-width: 880px) {
+    h1 {
+        font-size: var(--text-4xl);
+    }
+
+    h2 {
+        font-size: var(--text-3xl);
+    }
+
+    .desktop {
+        display: flex;
+    }
+    .menu-burger {
+        display: none;
+    }
+    .burger-bar {
+        visibility: hidden;
+    }
+
+    .slide-content h2 {
+        line-height: var(--leading-normal);
+    }
+
+    .container-card {
+        flex-wrap: nowrap;
+        column-gap: var(--space-8);
+    }
+
+    /* section  */
+    .container-corporate,
+    .contact {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'picture article';
+        align-items: stretch;
+        column-gap: var(--space-5);
+    }
+
+    .picture img {
+        max-height: none;
+        height: 100%;
+    }
+    .contact-describe {
+        grid-area: article;
+    }
+    .footer__grid {
+        grid-template-columns: 25% 25% 40% 10%;
+        justify-content: center;
+
+        gap: var(--space-3);
+        padding: var(--space-8) var(--space-16);
+    }
+
+    .footer__col {
+        text-align: left;
+    }
+
+    .footer__hours .hours__item span {
+        width: auto;
+        margin-right: var(--space-3);
+    }
 }
 
 /* Desktop (1024px et plus) */

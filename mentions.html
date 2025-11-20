@@ -8,100 +8,88 @@
     <title>Mentions légales - Unizus Photographie</title>
     <link rel="shortcut icon" href="./Assets/images/logo_Unizus_photographie.png" type="image/x-icon">
 
-    <link rel="stylesheet" href="./assets/style/reset.css">
-    <link rel="stylesheet" href="./assets/style/variables.css">
-    <link rel="stylesheet" href="./assets/style/style.css">
+
+    <title>mentions-legales</title>
+    <!-- DNS Prefetch pour compatibilité étendue -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+
+    <!-- Preconnect pour les domaines critiques -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <!-- Préchargement des CSS critiques -->
+    <link rel="preload" href="./assets/style/main.css" as="style">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" as="style">
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Playfair:opsz,wght@14,300;14,400;18,500;18,600;24,700&display=swap"
+        as="style">
+
+    <!-- CSS principaux -->
+    <link rel="stylesheet" href="./assets/style/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair:ital,wght@0,400..900;1,400..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Playfair:opsz,wght@14,300;14,400;18,500;18,600;24,700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
-    <title>mentions-legales</title>
+
+    <!-- Scripts non bloquants -->
+
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" defer></script>
+
+    <script defer>
+        window.addEventListener("load", function () {
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#262626",
+                        "text": "#ffffff"
+                    },
+                    "button": {
+                        "background": "#d4af37",
+                        "text": "#171717"
+                    }
+                },
+                "type": "opt-in",
+                "content": {
+                    "message": "🍪 Ce site utilise des cookies pour l'analyse d'audience et les fonctionnalités techniques.",
+                    "allow": "Tout accepter",
+                    "deny": "Tout refuser",
+                    "link": "Personnaliser",
+                    "href": "./mentions.html"
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
     <header class="header-container">
-        <!-- PLACE FOR NODAL ADMIN CONNEXION -->
+
 
         <!-- BOUTON DE SCROLL SMOOTH POUR REMONTER LA PAGE  -->
+
         <div class="btnScroll" id="backToTop">
-            <i class="fa-solid fa-arrow-up"></i>
+            <svg class="iconSvg" viewBox="0 0 24 24">
+                <use href="./assets/images/sprite.svg#icon-arrow-up"></use>
+            </svg>
+            </span>
         </div>
 
-        <!-- MENUS *2 -->
+
+        <!-- barre nav -->
         <div class="container-nav">
             <div class="container-logo">
-                <div id="img-logo">
-                    <a href="index.html"><img class="img-logo" src="./Assets/images/Logo-Unizus.png"
-                            alt="logo Unizus photgraphie"></a>
+                <div id="img-logo"><a href="./index.html">
+                        <img class="img-logo" src="./assets/images/Logo-Unizus-80.webp" alt="Logo Unizus photographie"
+                            width="80" height="80" style="width: 50px; height: 50px;">
 
-                    <img class="burger-bar" src="./Assets/images/burger-bar.png" alt="menu burger">
+                    </a>
+
+
                 </div>
-                <!-- MENU PHONE -->
-                <nav class="menu-burger">
-                    <img src="./Assets/images/close.png" alt="cross" class="close">
-                    <ul class="nav-mobile">
-                        <li><a class="link-nav actived" href="#">accueil</a></li>
-
-
-                        <li class="download"><a class="link-nav" href="#">tarifs</a>
-                            <ul class="under-nav">
-                                <li><a class="link-nav" href="#portrait-prices">portrait</a></li>
-                                <li><a class="link-nav" href="#wedding-prices">mariage</a></li>
-
-                            </ul>
-                        </li>
-                        <li class="download"><a class="link-nav" href="#">à propos</a>
-                            <ul class="under-nav">
-                                <li><a class="link-nav" href="#wedding">Mariage</a></li>
-                                <li><a class="link-nav" href="#luxe">Portrait</a></li>
-                                <li><a class="link-nav"
-                                        href="https://mariage-unizus.fr/photographe-mariage-professionnel/"
-                                        target="_blank">Blog</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a class=" link-nav" href="#">Admin</a>
-                        </li>
-                        <li><a class=" link-nav" href="#contactUs">contact</a></li>
-                        <li><a href="https://mariage-unizus.fr/photos-galerie/" class="link-nav reflex"
-                                target="_blank"><img src="./Assets/images/camera.png" alt="boitier reflex"></a></li>
-                    </ul>
-                </nav>
-            </div>
-            <!-- MENU DESKTOP -->
-            <nav class="desktop">
-                <ul class="nav-desktop">
-                    <li><a class="link-nav actived" href="#">accueil</a>
-                    </li>
-
-                    <li class="download"><a class="link-nav" href="#">tarifs</a>
-                        <ul class="under-nav">
-                            <li><a class="link-nav" href="#portrait-prices"> portrait</a></li>
-                            <li><a class="link-nav" href="#wedding-prices"> mariage</a></li>
-
-                        </ul>
-                    </li>
-                    <li class="download"><a class="link-nav" href="#">à propos</a>
-                        <ul class="under-nav">
-                            <li><a class="link-nav" href="#wedding">Mariage</a></li>
-                            <li><a class="link-nav" href="#luxe">Portrait</a></li>
-                            <li><a class="link-nav" href="https://mariage-unizus.fr/photographe-mariage-professionnel/"
-                                    target="_blank">Blog</a></li>
-                        </ul>
-                    </li>
-                    <li><a class=" link-nav" href="app/admin/connexion_admin.php">Admin</a>
-                    </li>
-                    <li><a class=" link-nav" href="#contactUs">contact</a></li>
-                    <li>
-                        <a href="https://mariage-unizus.fr/photos-galerie/" class="link-nav reflex" target="_blank">
-                            <img src="./Assets/images/camera.png" alt="boitier reflex">
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
 
     </header>
 
@@ -178,12 +166,17 @@
             </article>
         </section>
 
-        <section class="legal-notice">
+        <footer class="legal-notice">
             <p><em>Dernière mise à jour : 15/05/2025</em></p>
             <p>En utilisant ce site, vous acceptez cette politique de confidentialité.</p>
-        </section>
+            <a class="return" href="index.html">← Retour au site</a>
+
+        </footer>
 
     </div>
+
+    <!-- script  animation page -->
+    <script src="./assets/js/index.js" defer></script>
 </body>
 
 </html>
