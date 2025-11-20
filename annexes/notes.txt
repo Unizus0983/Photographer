@@ -1,0 +1,95 @@
+// === GESTION MAJUSCULES ===
+    // function majusculesAuto(input) {
+    //     const start = input.selectionStart;
+    //     const end = input.selectionEnd;
+    //     input.value = input.value.toUpperCase();
+    //     input.setSelectionRange(start, end);
+    // }
+
+    // const formArticle = document.getElementById('form-article');
+    // const titreInput = document.getElementById('titre');
+
+    // if (titreInput) {
+    //     titreInput.addEventListener('input', function () {
+    //         majusculesAuto(this);
+    //     });
+    // }
+
+    // if (formArticle && titreInput) {
+    //     formArticle.addEventListener('submit', function (e) {
+    //         titreInput.value = titreInput.value.toUpperCase();
+    //     });
+    // }
+
+    /* Style de base pour Tarte au Citron */
+/* Style basique pour Tarte au Citron */
+#tarteaucitronRoot {
+    z-index: 999999 !important;
+    pointer-events: auto !important;
+}
+#tarteaucitronIcon {
+    background: #007bff !important;
+    border-radius: 5px !important;
+    padding: 10px !important;
+}
+
+#tarteaucitronAlertBig {
+    background: #2c3e50 !important;
+    color: white !important;
+    padding: 20px !important;
+}
+
+.tarteaucitronAllow {
+    background: #28a745 !important;
+    color: white !important;
+}
+
+.tarteaucitronDeny {
+    background: #dc3545 !important;
+    color: white !important;
+}
+/* === Correctif complet pour la modal TarteAuCitron === */
+
+#tarteaucitronRoot,
+#tarteaucitron,
+#tarteaucitronBack,
+#tarteaucitronMainLine,
+#tarteaucitronMainLineOffset,
+#tarteaucitronAlertBig,
+#tarteaucitronAlertSmall {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2147483647 !important; /* au-dessus de tout */
+    pointer-events: auto !important;
+}
+
+/* S'assure que les éléments internes restent cliquables */
+#tarteaucitronRoot *,
+#tarteaucitron *,
+#tarteaucitronAlertBig *,
+#tarteaucitronAlertSmall * {
+    pointer-events: auto !important;
+}
+
+/* Fond assombri derrière la modal */
+#tarteaucitronBack {
+    background: rgba(0, 0, 0, 0.6) !important;
+    z-index: 2147483646 !important;
+}
+
+/* Bouton de fermeture toujours cliquable */
+#tarteaucitronClosePanel {
+    position: fixed !important;
+    top: 10px;
+    right: 10px;
+    z-index: 2147483648 !important;
+    pointer-events: auto !important;
+}
+
+/* Animation et blocage éventuel d'autres couches */
+body > *:not(#tarteaucitronRoot):not(script) {
+    pointer-events: auto;
+}

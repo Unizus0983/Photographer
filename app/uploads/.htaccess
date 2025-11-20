@@ -1,0 +1,39 @@
+RewriteEngine On
+
+# AUTORISER uniquement jpg, jpeg, webp et pdf - Bloquer tout le reste
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_URI} !\.(jpg|jpeg|webp|pdf)$ [NC]
+RewriteRule .* - [F,L]
+
+# Bloquer l'accès aux fichiers sensibles
+<FilesMatch "\.(php|phtml|php3|php4|php5|php7|phps|sh|pl|py|exe|bat|cmd)$">
+    Deny from all
+</FilesMatch>
+
+# Interdire l'exécution de scripts
+RemoveHandler .php .phtml .php3 .php4 .php5 .php7 .phps
+RemoveType .php .phtml .php3 .php4 .php5 .php7 .phps
+
+# Désactiver l'exécution CGI et le listing
+Options -ExecCGI -Indexes
+
+# Autoriser l'affichage des images (jpg, jpeg, webp)
+<FilesMatch "\.(jpg|jpeg|webp)$">
+    ForceType none
+    Header unset Content-Disposition
+    Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+
+# Forcer les PDF en téléchargement
+<FilesMatch "\.pdf$">
+    ForceType application/pdf
+    Header set Content-Disposition attachment
+</FilesMatch>
+
+# Empêcher le listing des répertoires
+IndexIgnore *
+
+# Sécurité headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+</IfModule>

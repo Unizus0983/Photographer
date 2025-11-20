@@ -1,0 +1,51 @@
+CREATE TABLE visiteurs (
+    id_visiteur INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(100) NOT NULL,
+    prenom VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    objet_demande VARCHAR(100) NOT NULL,
+    date_evenement DATE,
+    message TEXT,
+    date_soumission DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE admins (
+    id_admin INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('superadmin', 'admin') DEFAULT 'admin',
+    created_by INT NULL,
+    is_active BOOLEAN DEFAULT TRUE, -- ← CRITIQUE pour la gestion des comptes
+    last_login TIMESTAMP NULL,
+    login_attempts INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE documents (
+    id_document INT PRIMARY KEY AUTO_INCREMENT,
+    id_admin INT NOT NULL,
+    nom_original VARCHAR(255) NOT NULL,
+    nom_fichier VARCHAR(255) NOT NULL UNIQUE,
+    type_fichier ENUM('pdf','jpg','jpeg','webp') NOT NULL,
+    taille_ko DECIMAL(8,2) NOT NULL CHECK (taille_ko <= 350),
+    date_upload DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_admin) REFERENCES admins(id_admin) ON DELETE CASCADE
+);
+
+CREATE TABLE articles (
+    id_article INT PRIMARY KEY AUTO_INCREMENT,
+    id_admin INT NOT NULL,
+    titre VARCHAR(200) NOT NULL,
+    contenu TEXT NOT NULL,
+    image VARCHAR(500), -- URL ou chemin vers l'image (nullable)
+    date_publication DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_admin) REFERENCES admins(id_admin)
+);
+
+
+
+
+-- Si la colonne created_by n'existe pas, ajoutez-la :
+ALTER TABLE admins ADD COLUMN created_by INT NULL AFTER role;
+
