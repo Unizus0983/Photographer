@@ -34,7 +34,7 @@ img {
     display: block;
 }
 
-/* Balance text wrapping on headings */
+/* Balance text wrapping */
 h1,
 h2,
 h3,
@@ -784,7 +784,7 @@ p .strong {
 .slider-track {
     display: flex;
     height: 100%;
-    transition: transform 0.8 ease;
+    transition: transform 0.8s ease;
     width: 100%;
 }
 
