@@ -1,13 +1,12 @@
 <?php
 session_start();
 
-// Récupérer les erreurs de validation
+// Messages génèraux pour succés erreurs et validation
 if (isset($_SESSION['form_errors'])) {
     $form_errors = $_SESSION['form_errors'];
     unset($_SESSION['form_errors']);
 }
 
-// UNIQUEMENT pour succès/erreur BDD (pas d'erreurs validation ici)
 if (isset($_SESSION['success_message'])) {
     $message_success = $_SESSION['success_message'];
     unset($_SESSION['success_message']);
@@ -42,9 +41,21 @@ include '../includes/head.php';
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+
+
             const messageSuccess = '<?= $message_success ?? '' ?>';
             const messageError = '<?= $message_error ?? '' ?>';
             const formErrors = <?= isset($form_errors) ? json_encode($form_errors) : '[]' ?>;
+
+            // 1. VÉRIFIER si SweetAlert est disponible AVANT de cacher
+            if (typeof Swal === 'undefined') {
+                console.error('SweetAlert2 non chargé - affichage du fallback');
+                // On laisse le .success-container visible
+                return;
+            }
+
+            // 2. SEULEMENT SI SweetAlert est OK, on cache le conteneur
+            document.querySelector('.sucess-container').style.display = 'none';
 
             // Afficher les erreurs de validation
             if (formErrors.length > 0) {
