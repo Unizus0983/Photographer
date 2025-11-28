@@ -1300,10 +1300,9 @@ label {
 
 #articles-container {
     display: grid;
-    grid-template-rows: minmax(400px, 1fr);
-
+    grid-template-columns: 1fr; /* Mobile : 1 colonne */
+    grid-template-rows: minmax(400px, auto); /* Hauteur min 400px */
     justify-content: center;
-
     gap: var(--space-8);
     padding: var(--space-8) 0;
 }
@@ -1504,7 +1503,8 @@ label {
         max-height: none;
     }
     #articles-container {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr; /* Desktop : 3 colonnes */
+
         justify-content: center;
     }
 }

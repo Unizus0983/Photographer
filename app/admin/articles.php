@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                     // Vérification MIME
                     $finfo = finfo_open(FILEINFO_MIME_TYPE);
                     $realMime = finfo_file($finfo, $fileTmp);
-                    finfo_close($finfo);
+                    // finfo_close($finfo);auto en PHP 
 
                     if (!in_array($realMime, array_values($allowed))) {
                         $message = "Type MIME incorrect ($realMime)";
