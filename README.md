@@ -1,26 +1,53 @@
 [#PHOTOGRAPHER](../../Downloads/photographer-20251120T093028Z-1-001/photographer/README.md)
 
 [lien vers figma](https://www.figma.com/design/xN4vMpYPqH2074DQ9ANA8b/Projet-Artisan-phographe?node-id=29-4&t=axJwRWDk4jx4UhoA-0)
-#formulaire et admin à terminer je suis en train de faire les bdd :comme correction semaine des vacances je vais quand même faire le reste
 
-<!-- version cookies tarte au citon trop lour d 287ms au chargement -->
-<!-- <script src="./tarteAuCitron/tarteaucitron.min.js"></script>
-    <script type="text/javascript">
-        tarteaucitron.init({
-            "privacyUrl": "./mentions.html", "bodyPosition": "middle", "hashtag": "#tarteaucitron", "cookieName": "tarteaucitron", "orientation": "middle", "groupServices": true, "showDetailsOnClick": true, "serviceDefaultState": "wait", "showAlertSmall": true, "cookieslist": false, "cookieslistEmbed": true, "closePopup": true, "showIcon": false, "iconPosition": "BottomLeft", "adblocker": false, "DenyAllCta": true, "AcceptAllCta": true, "highPrivacy": true, "alwaysNeedConsent": false, "handleBrowserDNTRequest": false, "removeCredit": false, "moreInfoLink": true, "useExternalCss": false, "useExternalJs": false, "readmoreLink": "", "mandatory": true, "mandatoryCta": false, "googleConsentMode": true, "bingConsentMode": true, "softConsentMode": false, "dataLayer": false, "serverSide": false, "partnersList": true
-        });
-        // google analytics,tag manager
-        tarteaucitron.user.gajsUa = 'UA-XXXXXXXX-X';
-        tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push() */ };
-        (tarteaucitron.job = tarteaucitron.job || []).push('gajs');
-        //google maps
-        (tarteaucitron.job = tarteaucitron.job || []).push('maps_noapi');
-    </script> -->
+## 🔐 État actuel et améliorations prévues
 
-    <!-- gestion des images  -->
+### Configuration actuelle (développement)
 
-<!-- <img srcset="./assets/images/Portrait-femme-Bretagne-22_20-phone.webp  640w,
-                                ./assets/images/Portrait-femme-Bretagne-22_20.jpg 1200w" loading=" eager"
-                        fetchpriority="high" sizes="(max-width: 768px) 100vw, 1200px"
-                        src="./assets/images/Portrait-femme-Bretagne-22_20.jpg"
-                        alt="portrait femme d'Unizus photographie" width="640" height="500"> -->
+````php
+// app/includes/connect.php
+$user = 'root';      // Utilisateur par défaut XAMPP
+$password = '';      // Pas de mot de passe en local
+
+
+`### 🔧 Améliorations de sécurité prévues
+> "Actuellement, le projet utilise la configuration XAMPP par défaut parce que je suis en développement local. Je sais que pour la mise en production, il faudra :
+> 1. Créer un utilisateur MySQL avec seulement les droits nécessaires
+> 2. Mettre les identifiants dans un fichier `.env` qui n'est pas dans Git
+> 3. Chiffrer la connexion avec SSL si possible"
+
+1. **Base de données**
+   - [ ] Créer un utilisateur dédié (ex: `photographer_app`)
+   - [ ] Donner uniquement les droits nécessaires (SELECT, INSERT, UPDATE, DELETE)
+   - [ ] Jamais les droits DROP ou GRANT
+
+2. **Configuration**
+   - [ ] Créer un fichier `.env` à la racine :
+     ```
+     DB_HOST=localhost
+     DB_NAME=photographer
+     DB_USER=photographer_app
+     DB_PASS=MonMot2PasseComplexe!
+     ```
+   - [ ] Ajouter `.env` dans `.gitignore`
+
+3. **Code**
+   - [ ] Modifier `connect.php` pour lire le `.env`
+   - [ ] Ajouter un fallback pour le développement local``
+
+votre-projet/
+├── .env                    ⬅️ FICHIER (caché, commence par un point)
+├── app/
+├── includes/
+└── index.html
+````
+
+# .env - Fichier séparé
+
+DB_USER=mon_utilisateur
+DB_PASS=mon_mot_de_passe_secret
+// connect.php - Maintenant il lit le .env
+$user = $_ENV['DB_USER'];        // ← Lit depuis .env
+$password = $\_ENV['DB_PASS']; // ← Lit depuis .env

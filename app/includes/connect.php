@@ -1,5 +1,7 @@
 <?php
-//constantes
+//constantes// ATTENTION : Configuration développement local seulement
+// EN PRODUCTION : utiliser variables d'environnement
+
 $host = 'localhost';
 $dbname = 'photographer';
 $user = 'root';
