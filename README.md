@@ -51,3 +51,27 @@ DB_PASS=mon_mot_de_passe_secret
 // connect.php - Maintenant il lit le .env
 $user = $_ENV['DB_USER'];        // ← Lit depuis .env
 $password = $\_ENV['DB_PASS']; // ← Lit depuis .env
+
+### 👥 Politique de contrôle d'accès
+
+L'application implémente une gestion des rôles à deux niveaux :
+
+#### Rôle "admin"
+
+-   **Accès** : Tableau de bord, gestion articles, gestion documents
+-   **Actions** : Créer/modifier/supprimer du contenu
+-   **Exemple** : `documents.php` - Tous les admins peuvent uploader
+
+#### Rôle "superadmin"
+
+-   **Accès** : Toutes les fonctionnalités admin
+-   **Actions** : Gestion des comptes administrateurs
+-   **Exemple** : `gestion_admin.php` - Uniquement superadmin
+
+#### Justification
+
+Cette séparation permet :
+
+-   **Délégation** : Des admins peuvent gérer le contenu sans accès sensible
+-   **Sécurité** : La gestion des comptes reste réservée
+-   **Flexibilité** : Attribution des droits selon les besoins

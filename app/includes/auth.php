@@ -1,14 +1,15 @@
 <?php
 function checkAdminAuth()
 {
-    session_start();
+    // Démarre la session seulement si pas déjà démarrée
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
-    // Vérifier si l'admin est connecté
-    if (!isset($_SESSION['admin_id']) || empty($_SESSION['admin_id'])) {
+    if (!isset($_SESSION['admin_id'])) {
         header('Location: connexion_admin.php');
         exit();
     }
-
     return true;
 }
 

@@ -1,6 +1,8 @@
 <?php
 
 require_once '../includes/config.php';
+require_once '../includes/auth.php';
+checkAdminAuth();
 
 // Récupérer l'article à modifier
 if (isset($_GET['id'])) {

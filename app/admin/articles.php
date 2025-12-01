@@ -1,5 +1,8 @@
 <?php
+
 require_once '../includes/config.php';
+require_once '../includes/auth.php';
+checkAdminAuth();
 
 // Système unifié de messages
 $message_success = "";
@@ -52,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                     'webp' => 'image/webp'
                 ];
 
-                $filename  = $_FILES['image']["name"];
+                $filename  = basename($_FILES['image']["name"]);
                 $filesize  = $_FILES['image']["size"];
                 $fileTmp   = $_FILES['image']['tmp_name'];
                 $extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));

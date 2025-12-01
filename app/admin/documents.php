@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'webp' => 'image/webp'
         ];
 
-        $filename  = $_FILES['fichier']["name"];
+        $filename  = basename($_FILES['fichier']["name"]);
         $filesize  = $_FILES['fichier']["size"];
         $fileTmp   = $_FILES['fichier']['tmp_name'];
         $tailleKo  = round($filesize / 1024, 2);

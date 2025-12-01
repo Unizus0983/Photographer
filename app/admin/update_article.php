@@ -1,12 +1,14 @@
 <?php
-session_start();
-require_once '../includes/config.php'; // ← CHANGE: utiliser config.php au lieu de connect.php
 
-// Vérification admin
-if (!isset($_SESSION['admin_id'])) {
-    header('Location: login.php');
-    exit();
-}
+require_once '../includes/config.php';
+require_once '../includes/auth.php';
+checkAdminAuth();
+
+// Vérification admin redondante
+// if (!isset($_SESSION['admin_id'])) {
+//     header('Location: login.php');
+//     exit();
+// }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $id = (int)$_POST['id'];
