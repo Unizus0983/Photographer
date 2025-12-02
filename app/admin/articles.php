@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     if (empty($titre) || empty($contenu)) {
         $message = "Le formulaire est incomplet - titre et contenu sont obligatoires";
     } else {
-        $titre = strtoupper(strip_tags($titre));
+        $titre = mb_convert_case(mb_strtolower(strip_tags($titre)), MB_CASE_TITLE, 'UTF-8');
         $imageName = null;
 
         // Vérification upload image

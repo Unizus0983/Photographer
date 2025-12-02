@@ -84,9 +84,7 @@ include '../includes/head.php';
                 <input type="text"
                     id="titre"
                     name="titre"
-                    value="<?= htmlspecialchars($article['titre']) ?>"
-                    oninput="this.value = this.value.toLowerCase().replace(/\b\w/g, char => char.toUpperCase())"
-                    required>
+                    value="<?= htmlspecialchars($article['titre']) ?>" required>
             </div>
 
             <div>
