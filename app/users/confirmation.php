@@ -30,9 +30,29 @@ include '../includes/head.php';
 ?>
 
 <body>
-    <div class="sucess-container">
+    <div class="sucess-container" id="sucess-container">
         <h1>Page de Confirmation</h1>
         <p>Merci de votre visite.</p>
+        <!-- ajout -->
+        <?php if (!empty($message_success)): ?>
+            <div class="fallback-message success">
+                <p><strong>Succès :</strong> <?= htmlspecialchars($message_success) ?></p>
+            </div>
+        <?php elseif (!empty($message_error)): ?>
+            <div class="fallback-message error">
+                <p><strong>Erreur :</strong> <?= htmlspecialchars($message_error) ?></p>
+            </div>
+        <?php elseif (!empty($form_errors)): ?>
+            <div class="fallback-message error">
+                <p><strong>Formulaire incomplet :</strong></p>
+                <ul>
+                    <?php foreach ($form_errors as $error): ?>
+                        <li><?= htmlspecialchars($error) ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+        <!-- fin ajout -->
         <a href="../../index.html" class="btn btn-submit">Retour à l'accueil</a>
     </div>
 
@@ -46,16 +66,31 @@ include '../includes/head.php';
             const messageSuccess = '<?= $message_success ?? '' ?>';
             const messageError = '<?= $message_error ?? '' ?>';
             const formErrors = <?= isset($form_errors) ? json_encode($form_errors) : '[]' ?>;
+            // ajout modif
+            const successContainer = document.getElementById('sucess-container');
+
+            // Par défaut, le conteneur est visible (fallback)
+            // On ne le cache QUE si SweetAlert est disponible ET qu'on a des messages
 
             // 1. VÉRIFIER si SweetAlert est disponible AVANT de cacher
             if (typeof Swal === 'undefined') {
                 console.error('SweetAlert2 non chargé - affichage du fallback');
-                // On laisse le .success-container visible
+                // Le conteneur reste visible (c'est déjà le cas par défaut)
+                return;
+            }
+            // 2. Vérifier si on a des messages à afficher avec SweetAlert
+            const hasMessages = formErrors.length > 0 || messageSuccess || messageError;
+
+            if (!hasMessages) {
+                // Pas de messages, on laisse le conteneur visible
+                console.log('Aucun message à afficher - affichage du conteneur par défaut');
                 return;
             }
 
-            // 2. SEULEMENT SI SweetAlert est OK, on cache le conteneur
-            document.querySelector('.sucess-container').style.display = 'none';
+            // 3. SweetAlert disponible ET messages à afficher → on cache le conteneur
+            if (successContainer) {
+                successContainer.classList.add('hidden');
+            }
 
             // Afficher les erreurs de validation
             if (formErrors.length > 0) {
