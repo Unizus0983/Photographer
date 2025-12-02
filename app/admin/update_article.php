@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
         header("Location: modify_article.php?id=" . $id); // ← CORRIGE: modify_article.php
         exit();
     }
-    $titre = mb_convert_case(mb_strtolower(strip_tags($titre)), MB_CASE_TITLE, 'UTF-8');
+    $titre = ucwords(strtolower(strip_tags($titre)));
 
     try {
         // Récupérer l'article actuel pour l'image
