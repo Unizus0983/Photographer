@@ -1,5 +1,8 @@
 <?php
-session_start();
+// session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start(); // ← SEULEMENT si session pas encore démarrée
+}
 require_once '../includes/connect.php';
 
 // Vérification de la connexion admin (sécurité)
@@ -30,10 +33,10 @@ $adminRole = htmlspecialchars($adminData['role']);
 $isSuperAdmin = ($adminData['role'] === 'superadmin');
 
 // Fonction utilitaire pour vérifier les rôles
-function requireSuperAdmin()
-{
-    if (!isset($_SESSION['admin_role']) || $_SESSION['admin_role'] !== 'superadmin') {
-        header('Location: dashboard.php?error=access_denied');
-        exit();
-    }
-}
+// function requireSuperAdmin()
+// {
+//     if (!isset($_SESSION['admin_role']) || $_SESSION['admin_role'] !== 'superadmin') {
+//         header('Location: dashboard.php?error=access_denied');
+//         exit();
+//     }
+// }

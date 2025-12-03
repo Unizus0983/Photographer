@@ -1,6 +1,8 @@
 <?php
 // session_start();déjà présente dans le fichier config
 require_once '../includes/config.php';
+require_once '../includes/auth.php';
+checkAdminAuth();
 
 // Vérification admin avec le nouveau système
 if (!isset($_SESSION['admin_id'])) {

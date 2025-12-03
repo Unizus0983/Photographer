@@ -1,6 +1,8 @@
 <?php
 
 require_once '../includes/config.php';
+require_once '../includes/auth.php';
+checkAdminAuth();
 
 $allVisitors = [];
 $message = '';
@@ -18,28 +20,28 @@ if (isset($_POST['supprimer_visiteur'])) {
         $stmtDelete->execute([':id' => $idVisiteur]);
         //si nombre de lignes
         if ($stmtDelete->rowCount() > 0) {
-            $_SESSION['success'] = "Visiteur supprimé avec succès !";
+            $_SESSION['success_message'] = "Visiteur supprimé avec succès !";
         } else {
-            $_SESSION['error'] = "Aucun visiteur trouvé avec cet ID.";
+            $_SESSION['error_message'] = "Aucun visiteur trouvé avec cet ID.";
         }
 
         // Redirection sur la même page réactualiser pour éviter la re-soumission du formulaire avec concaténation de la page actuelle + paramètres de l' url
         header('Location: ' . $_SERVER['PHP_SELF'] . '?' . $_SERVER['QUERY_STRING']);
         exit();
     } catch (PDOException $e) {
-        $_SESSION['error'] = "Erreur lors de la suppression: " . $e->getMessage();
+        $_SESSION['error_message'] = "Erreur lors de la suppression: " . $e->getMessage();
         header('Location: ' . $_SERVER['PHP_SELF'] . '?' . $_SERVER['QUERY_STRING']);
         exit();
     }
 }
 
 // AFFICHAGE DES MESSAGES
-if (isset($_SESSION['success'])) {
-    $message = $_SESSION['success'];
-    unset($_SESSION['success']);
-} elseif (isset($_SESSION['error'])) {
-    $message = $_SESSION['error'];
-    unset($_SESSION['error']);
+if (isset($_SESSION['success_message'])) {
+    $message = $_SESSION['success_message'];
+    unset($_SESSION['success_message']);
+} elseif (isset($_SESSION['error_message'])) {
+    $message = $_SESSION['error_message'];
+    unset($_SESSION['error_message']);
 }
 
 // pagination pour nombre de visiteurs par page
