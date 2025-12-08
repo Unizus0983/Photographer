@@ -1,6 +1,8 @@
 <?php
 
 require_once '../includes/config.php';
+require_once '../includes/auth.php';
+checkAdminAuth();
 
 // Récupérer l'article à modifier
 if (isset($_GET['id'])) {
@@ -83,8 +85,7 @@ include '../includes/head.php';
                     id="titre"
                     name="titre"
                     value="<?= htmlspecialchars($article['titre']) ?>"
-                    oninput="this.value = this.value.toLowerCase().replace(/\b\w/g, char => char.toUpperCase())"
-                    required>
+                    oninput="this.value = this.value.toLowerCase().replace(/\b\w/g, char => char.toUpperCase())" required>
             </div>
 
             <div>

@@ -1020,6 +1020,13 @@ select:focus,
     border-radius: var(--radius);
     box-shadow: var(--shadow-md);
 }
+.sucess-container.hidden {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+}
 
 .sucess-container h1 {
     font-size: var(--text-h2);

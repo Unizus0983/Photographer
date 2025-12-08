@@ -26,7 +26,7 @@
     <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Playfair:opsz,wght@14,300;14,400;18,500;18,600;24,700&display=swap"
         as="style">
-    <link rel="preload" as="image" href="./assets/images/Portrait-femme-Bretagne-22_20-phone.webp" fetchpriority="high">
+
 
     <!-- CSS principaux -->
     <link rel="stylesheet" href="./assets/style/main.css">
@@ -39,7 +39,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" defer></script>
 
-    <script defer>
+    <script>
         window.addEventListener("load", function () {
             window.cookieconsent.initialise({
                 "palette": {
@@ -66,45 +66,79 @@
 </head>
 
 <body>
+    <main>
 
-    <header class="header-container">
+        <header class="header-container">
 
 
-        <!-- BOUTON DE SCROLL SMOOTH POUR REMONTER LA PAGE  -->
-        <div class="btnScroll" id="backToTop">
+            <!-- BOUTON DE SCROLL SMOOTH POUR REMONTER LA PAGE  -->
             <div class="btnScroll" id="backToTop">
+
                 <svg class="iconSvg" viewBox="0 0 24 24">
                     <use href="./assets/images/sprite.svg#icon-arrow-up"></use>
                 </svg>
-                </span>
-            </div>
-        </div>
 
-        <!-- MENUS *2 -->
-        <div class="container-nav">
-            <div class="container-logo">
-                <div id="img-logo"><a href="./index.html">
-                        <img class="img-logo" srcset="./assets/images/Logo-Unizus-80.webp 80w,
+
+            </div>
+
+            <!-- MENUS *2 -->
+            <div class="container-nav">
+                <div class="container-logo">
+                    <div id="img-logo"><a href="./index.html">
+                            <img class="img-logo" srcset="./assets/images/Logo-Unizus-80.webp 80w,
                      ./assets/images/Logo-Unizus.webp 50w,
                      ./assets/images/logo_Unizus_photographie.png 32w" sizes="(max-width: 768px) 50px, 80px"
-                            src="./assets/images/Logo-Unizus-80.webp" alt="Logo Unizus photographie" width="80"
-                            height="80">
+                                src="./assets/images/Logo-Unizus-80.webp" alt="Logo Unizus photographie" width="80"
+                                height="80">
 
-                    </a>
-                    <img class="burger-bar" src="./assets/images/icons8-menu-48.png" alt="menu burger">
+                        </a>
+                        <img class="burger-bar" src="./assets/images/icons8-menu-48.png" alt="menu burger">
 
+                    </div>
+                    <!-- MENU PHONE -->
+                    <nav class="menu-burger">
+                        <img src="./assets/images/close.png" alt="cross" class="close">
+                        <ul class="nav-mobile">
+                            <li><a class="link-nav actived" href="#">accueil</a></li>
+
+
+                            <li class="download"><a class="link-nav" href="#">tarifs</a>
+                                <ul class="under-nav">
+                                    <li><a class="link-nav" href="#portrait-prices">portrait</a></li>
+                                    <li><a class="link-nav" href="#wedding-prices">mariage</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="download"><a class="link-nav" href="#">à propos</a>
+                                <ul class="under-nav">
+                                    <li><a class="link-nav" href="#wedding">Mariage</a></li>
+                                    <li><a class="link-nav" href="#luxe">Portrait</a></li>
+                                    <li><a class="link-nav"
+                                            href="https://mariage-unizus.fr/photographe-mariage-professionnel/"
+                                            target="_blank">Blog</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li><a class=" link-nav" href="#sectionArticles">articles</a></li>
+                            <li><a class=" link-nav" href="#contactUs">contact</a></li>
+                            <li><a href="https://mariage-unizus.fr/photos-galerie/" class="link-nav reflex"
+                                    target="_blank"><img src="./assets/images/camera.png" alt="boitier reflex"
+                                        title="accès à la galerie photos" width="32" height="32"></a></li>
+                            <li><a class=" link-nav" href="app/admin/connexion_admin.php">&#128273;</a>
+                        </ul>
+                    </nav>
                 </div>
-                <!-- MENU PHONE -->
-                <nav class="menu-burger">
-                    <img src="./assets/images/close.png" alt="cross" class="close">
-                    <ul class="nav-mobile">
-                        <li><a class="link-nav actived" href="#">accueil</a></li>
-
+                <!-- MENU DESKTOP -->
+                <nav class="desktop">
+                    <ul class="nav-desktop">
+                        <li><a class="link-nav actived" href="#">accueil</a>
+                        </li>
 
                         <li class="download"><a class="link-nav" href="#">tarifs</a>
                             <ul class="under-nav">
-                                <li><a class="link-nav" href="#portrait-prices">portrait</a></li>
-                                <li><a class="link-nav" href="#wedding-prices">mariage</a></li>
+                                <li><a class="link-nav" href="#portrait-prices"> portrait</a></li>
+                                <li><a class="link-nav" href="#wedding-prices"> mariage</a></li>
 
                             </ul>
                         </li>
@@ -114,398 +148,370 @@
                                 <li><a class="link-nav" href="#luxe">Portrait</a></li>
                                 <li><a class="link-nav"
                                         href="https://mariage-unizus.fr/photographe-mariage-professionnel/"
-                                        target="_blank">Blog</a>
-                                </li>
+                                        target="_blank">Blog</a></li>
                             </ul>
                         </li>
-                        </li>
+
                         <li><a class=" link-nav" href="#sectionArticles">articles</a></li>
                         <li><a class=" link-nav" href="#contactUs">contact</a></li>
-                        <li><a href="https://mariage-unizus.fr/photos-galerie/" class="link-nav reflex"
-                                target="_blank"><img src="./assets/images/camera.png" alt="boitier reflex"
-                                    title="accès à la galerie photos" width="32px" height="32px"></a></li>
+                        <li>
+                            <a href="https://mariage-unizus.fr/photos-galerie/" class="link-nav reflex" target="_blank">
+                                <img src="./assets/images/camera.png" alt="Boîtier reflex"
+                                    title="accès à la galerie photos" width="32" height="32">
+                            </a>
+                        </li>
                         <li><a class=" link-nav" href="app/admin/connexion_admin.php">&#128273;</a>
                     </ul>
                 </nav>
             </div>
-            <!-- MENU DESKTOP -->
-            <nav class="desktop">
-                <ul class="nav-desktop">
-                    <li><a class="link-nav actived" href="#">accueil</a>
-                    </li>
+            <div class="banner container">
+                <div class="title title-banner">
+                    <h1>Photographe de Mariage &#38; Portrait Professionnel <br>
+                        Ardres (62), Unizus-Art</h1>
+                </div>
+                <div class="banner-text">
+                    <p>Unizus capture l'émotion des moments uniques dans la région du Pas-de-Calais.</p>
+                    <p><strong class="strong">Mariages, portraits et événements</strong>,<br>immortalisés avec un regard
+                        artistique.</p>
 
-                    <li class="download"><a class="link-nav" href="#">tarifs</a>
-                        <ul class="under-nav">
-                            <li><a class="link-nav" href="#portrait-prices"> portrait</a></li>
-                            <li><a class="link-nav" href="#wedding-prices"> mariage</a></li>
-
-                        </ul>
-                    </li>
-                    <li class="download"><a class="link-nav" href="#">à propos</a>
-                        <ul class="under-nav">
-                            <li><a class="link-nav" href="#wedding">Mariage</a></li>
-                            <li><a class="link-nav" href="#luxe">Portrait</a></li>
-                            <li><a class="link-nav" href="https://mariage-unizus.fr/photographe-mariage-professionnel/"
-                                    target="_blank">Blog</a></li>
-                        </ul>
-                    </li>
-                    </li>
-                    <li><a class=" link-nav" href="#sectionArticles">articles</a></li>
-                    <li><a class=" link-nav" href="#contactUs">contact</a></li>
-                    <li>
-                        <a href="https://mariage-unizus.fr/photos-galerie/" class="link-nav reflex" target="_blank">
-                            <img src="./assets/images/camera.png" alt="Boîtier reflex" title="accès à la galerie photos"
-                                width="32px" height="32px">
-                        </a>
-                    </li>
-                    <li><a class=" link-nav" href="app/admin/connexion_admin.php">&#128273;</a>
-                </ul>
-            </nav>
-        </div>
-        <div class="banner container">
-            <div class="title title-banner">
-                <h1>Photographe de Mariage &#38; Portrait Professionnel <br>
-                    Ardres (62), Unizus-Art</h1>
+                </div>
             </div>
-            <div class="banner-text">
-                <p>Unizus capture l'émotion des moments uniques dans la région du Pas-de-Calais.</p>
-                <p><strong class="strong">Mariages, portraits et événements</strong>,<br>immortalisés avec un regard
-                    artistique.</p>
-
-            </div>
-        </div>
-    </header>
-    <!-- fin header -->
-    <section class="services">
-        <div class="slider-container">
-            <!-- SLIDE COULISSANT -->
-            <div class="slider-track">
-                <div class="slide active">
-                    <img srcset="./assets/images/Portrait-femme-Bretagne-22_20-phone.webp 600w,
+        </header>
+        <!-- fin header -->
+        <section class="services">
+            <div class="slider-container">
+                <!-- SLIDE COULISSANT -->
+                <div class="slider-track">
+                    <div class="slide active">
+                        <img srcset="./assets/images/Portrait-femme-Bretagne-22_20-phone.webp 400w,
                 ./assets/images/Portrait-femme-Bretagne-22_20.webp 600w" loading="eager" fetchpriority="high"
-                        sizes="(max-width: 768px) 100vw, 600px" src="./assets/images/Portrait-femme-Bretagne-22_20.webp"
-                        alt="portrait femme d'Unizus photographie" width="600" height="337">
-                    <div class="slide-content">
-                        <h2>Portrait Luxe</h2>
-                        <p>Elègance intemporelle. Noir et blanc subliment l’essence du luxe.
-                            Pureté, contrastes, émotions. Un portrait où chaque détail compte.</p>
+                            sizes="(max-width: 768px) 100vw, 600px"
+                            src="./assets/images/Portrait-femme-Bretagne-22_20.webp"
+                            alt="portrait femme d'Unizus photographie" width="600" height="337">
+                        <div class="slide-content">
+                            <h2>Portrait Luxe</h2>
+                            <p>Elègance intemporelle. Noir et blanc subliment l’essence du luxe.
+                                Pureté, contrastes, émotions. Un portrait où chaque détail compte.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="slide">
-                    <img srcset="./assets/images/portrait-femme-bretagne-22_15-phone.webp 600w,
+                    <div class="slide">
+                        <img srcset="./assets/images/portrait-femme-bretagne-22_15-phone.webp 400w,
              ./assets/images/portrait-femme-bretagne-22_15.webp 600w" loading="lazy"
-                        sizes="(max-width: 768px) 100vw, 600px" src="./assets/images/Portrait-femme-Bretagne-22_15.webp"
-                        alt="portrait femme d'Unizus photographie" width="600" height="337">
-                    <div class="slide-content">
-                        <h2>Portrait Classique</h2>
-                        <p>Les lumières naturelles subliment vos couleurs. Portrait vibrant, authentique et élègant.
-                            L’extérieur comme écrin, émotions comme essence.</p>
+                            sizes="(max-width: 768px) 100vw, 600px"
+                            src="./assets/images/Portrait-femme-Bretagne-22_15.webp"
+                            alt="portrait femme d'Unizus photographie" width="600" height="337">
+                        <div class="slide-content">
+                            <h2>Portrait Classique</h2>
+                            <p>Les lumières naturelles subliment vos couleurs. Portrait vibrant, authentique et élègant.
+                                L’extérieur comme écrin, émotions comme essence.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="slide">
-                    <img srcset="./assets/images/Corporate-Portrait-phone.webp 600w,
+                    <div class="slide">
+                        <img srcset="./assets/images/Corporate-Portrait-phone.webp 400w,
                                  ./assets/images/Corporate-Portrait_1.webp 600w" loading="lazy"
-                        sizes="(max-width: 768px) 100vw, 600px" src="./assets/images/Corporate-Portrait_1.webp"
-                        alt="portrait Corporate d'Unizus photographie" width="600" height="337">
-                    <div class="slide-content">
-                        <h2>Portrait Corporate</h2>
-                        <p>Portrait corporate d’exception. Qualité artistique et élègance professionnelle. Lumière
-                            maîtrisée, image puissante, un impact durable.</p>
+                            sizes="(max-width: 768px) 100vw, 600px" src="./assets/images/Corporate-Portrait_1.webp"
+                            alt="portrait Corporate d'Unizus photographie" width="600" height="337">
+                        <div class="slide-content">
+                            <h2>Portrait Corporate</h2>
+                            <p>Portrait corporate d’exception. Qualité artistique et élègance professionnelle. Lumière
+                                maîtrisée, image puissante, un impact durable.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="slide">
-                    <img srcset="./assets/images/Mariage-Bretagne22-Plevenon_phone.webp 600w,
+                    <div class="slide">
+                        <img srcset="./assets/images/Mariage-Bretagne22-Plevenon_phone.webp 400w,
                                 ./assets/images/Mariage-Bretagne22-Plevenon_13.jpg 600w" loading="lazy"
-                        sizes="(max-width: 768px) 100vw, 600px" src="./assets/images/Mariage-Bretagne22-Plevenon_13.jpg"
-                        alt="portrait mariage d'Unizus photographie" width="600" height="337">
-                    <div class="slide-content">
-                        <h2>Mariage</h2>
-                        <p>Portraits de mariage intemporels. Emotions en noir & blanc, lumières naturelles
-                            sublimées.
-                            Elègance et authenticité pour un jour unique.</p>
+                            sizes="(max-width: 768px) 100vw, 600px"
+                            src="./assets/images/Mariage-Bretagne22-Plevenon_13.jpg"
+                            alt="portrait mariage d'Unizus photographie" width="600" height="337">
+                        <div class="slide-content">
+                            <h2>Mariage</h2>
+                            <p>Portraits de mariage intemporels. Emotions en noir & blanc, lumières naturelles
+                                sublimées.
+                                Elègance et authenticité pour un jour unique.</p>
+                        </div>
                     </div>
                 </div>
+                <!-- BUTTONS VISIBLE FOR SLIDER -->
+                <div class="slider-nav">
+                    <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                </div>
             </div>
-            <!-- BUTTONS VISIBLE FOR SLIDER -->
-            <div class="slider-nav">
-                <div class="slider-dot active"></div>
-                <div class="slider-dot"></div>
-                <div class="slider-dot"></div>
-                <div class="slider-dot"></div>
+        </section>
+        <!-- section prices 1 -->
+        <section id="portrait-prices" class="portraitPrices container">
+            <div>
+                <h2 class="pack-title">packs portraits</h2>
             </div>
-        </div>
-    </section>
-    <!-- section prices 1 -->
-    <section id="portrait-prices" class="portraitPrices container">
-        <div>
-            <h2 class="pack-title">packs portraits</h2>
-        </div>
-        <div class="container-card container">
-            <!-- portrait luxe -->
-            <div class="card">
-                <div class="header-card title-white">
-                    <h3>Portrait Luxe*</h3>
-                    <p class="header-content">Shooting: <span class="time">1h30</span></p>
-                </div>
-                <div class="card-price">
-                    <span class="price money">€</span>
-                    <p class="price">199</p>
-                </div>
-                <div class="benefits">
-                    <ul class="list-benefits">
-                        <li>Maquillage 1h </li>
-                        <li>Post-traitement</li>
-                        <li>5 Photos Digitales</li>
-                        <li>Galerie privée</li>
+            <div class="container-card container">
+                <!-- portrait luxe -->
+                <div class="card">
+                    <div class="header-card title-white">
+                        <h3>Portrait Luxe*</h3>
+                        <p class="header-content">Shooting: <span class="time">1h30</span></p>
+                    </div>
+                    <div class="card-price">
+                        <span class="price money">€</span>
+                        <p class="price">199</p>
+                    </div>
+                    <div class="benefits">
+                        <ul class="list-benefits">
+                            <li>Maquillage 1h </li>
+                            <li>Post-traitement</li>
+                            <li>5 Photos Digitales</li>
+                            <li>Galerie privée</li>
 
-                    </ul>
+                        </ul>
+                    </div>
+                    <a href="#form" class="btn">contact</a>
                 </div>
-                <a href="#form" class="btn">contact</a>
-            </div>
-            <!-- portrait famille -->
-            <div class="card">
-                <div class="header-card gray">
-                    <h3>Portrait famille*</h3>
-                    <p class="header-content ">Shooting: <span class="time">2h00</span></p>
-                </div>
-                <div class="card-price">
-                    <span class="price money">€</span>
-                    <p class="price">250</p>
-                </div>
-                <div class="benefits">
-                    <ul class="list-benefits">
-                        <li>en extérieur</li>
-                        <li>Post-traitement</li>
-                        <li>10 Photos Digitales</li>
-                        <li>Galerie privée</li>
+                <!-- portrait famille -->
+                <div class="card">
+                    <div class="header-card gray">
+                        <h3>Portrait famille*</h3>
+                        <p class="header-content ">Shooting: <span class="time">2h00</span></p>
+                    </div>
+                    <div class="card-price">
+                        <span class="price money">€</span>
+                        <p class="price">250</p>
+                    </div>
+                    <div class="benefits">
+                        <ul class="list-benefits">
+                            <li>en extérieur</li>
+                            <li>Post-traitement</li>
+                            <li>10 Photos Digitales</li>
+                            <li>Galerie privée</li>
 
-                    </ul>
+                        </ul>
+                    </div>
+                    <a href="#form" class="btn">contact</a>
                 </div>
-                <a href="#form" class="btn">contact</a>
-            </div>
 
-            <!-- portrait classique -->
-            <div class="card">
-                <div class="header-card title-white">
-                    <h3>classique success*</h3>
-                    <p class="header-content">Shooting: <span class="time">1/2 h</span></p>
+                <!-- portrait classique -->
+                <div class="card">
+                    <div class="header-card title-white">
+                        <h3>classique success*</h3>
+                        <p class="header-content">Shooting: <span class="time">1/2 h</span></p>
+                    </div>
+                    <div class="card-price">
+                        <span class="price money">€</span>
+                        <p class="price">99</p>
+                    </div>
+                    <div class="benefits">
+                        <ul class="list-benefits">
+                            <li class="barred">Maquillage 1h </li>
+                            <li>Post-traitement</li>
+                            <li>3 Photos Digitales</li>
+                            <li>Galerie privée</li>
+
+                        </ul>
+                    </div>
+                    <a href="#form" class="btn">contact</a>
                 </div>
-                <div class="card-price">
-                    <span class="price money">€</span>
-                    <p class="price">99</p>
-                </div>
-                <div class="benefits">
-                    <ul class="list-benefits">
-                        <li class="barred">Maquillage 1h </li>
-                        <li>Post-traitement</li>
-                        <li>3 Photos Digitales</li>
-                        <li>Galerie privée</li>
-
-                    </ul>
-                </div>
-                <a href="#form" class="btn">contact</a>
-            </div>
-        </div>
-
-    </section>
-    <!-- section descrition 1 -->
-    <section class="corporate" id="luxe">
-        <div class="container-corporate container">
-
-            <div class="article title-white">
-                <h3> Portrait Corporate Luxe </h3>
-                <p>Un portrait corporate réussi transcende la simple photo : c'est l'ADN visuel de votre marque.
-                    Élégance sobre, lumière sculpturale et regard percutant construisent une image d'autorité et de
-                    confiance.</p>
-                <p>Lumière tamisée pour le raffinement, fonds neutres ou texturés pour la profondeur, tenues
-                    harmonisées
-                    avec la charte de l'entreprise. Chaque détail compte pour un résultat cohérent et premium.</p>
-                <p>Un portrait luxe renforce la crédibilité, humanise la marque et uniformise votre communication.
-                    C'est
-                    un investissement stratégique pour une image corporate mémorable et différenciante.</p>
             </div>
 
+        </section>
+        <!-- section descrition 1 -->
+        <section class="corporate" id="luxe">
+            <div class="container-corporate container">
 
-            <div class="picture">
-                <img src="./assets/images/portrait-corporate.jpg" srcset="./assets/images/portrait-corporate-phone.webp 490w,
+                <div class="article title-white">
+                    <h3> Portrait Corporate Luxe </h3>
+                    <p>Un portrait corporate réussi transcende la simple photo : c'est l'ADN visuel de votre marque.
+                        Élégance sobre, lumière sculpturale et regard percutant construisent une image d'autorité et de
+                        confiance.</p>
+                    <p>Lumière tamisée pour le raffinement, fonds neutres ou texturés pour la profondeur, tenues
+                        harmonisées
+                        avec la charte de l'entreprise. Chaque détail compte pour un résultat cohérent et premium.</p>
+                    <p>Un portrait luxe renforce la crédibilité, humanise la marque et uniformise votre communication.
+                        C'est
+                        un investissement stratégique pour une image corporate mémorable et différenciante.</p>
+                </div>
+
+
+                <div class="picture">
+                    <img src="./assets/images/portrait-corporate.jpg" srcset="./assets/images/portrait-corporate-phone.webp 490w,
                 ./assets/images/portrait-corporate.jpg 980w" sizes="(max-width: 768px) 490px, 980px" loading="lazy"
-                    alt="portrait corporate" width="490" height="490">
+                        alt="portrait corporate" width="490" height="490">
+                </div>
+
+
             </div>
 
-
-        </div>
-
-    </section>
-    <!-- section prices 2  wedding -->
-    <section id="wedding-prices" class="portraitPrices container">
-        <div>
-            <h2 class="pack-title">packs mariage</h2>
-        </div>
-        <div class="container-card container">
-            <!-- mariage gold -->
-            <div class="card">
-                <div class="header-card title-white">
-                    <h3>Mariage gold*</h3>
-                    <p class="header-content">Shooting: journée</p>
-                </div>
-                <div class="card-price">
-                    <span class="price money">€</span>
-                    <p class="price">1899</p>
-                </div>
-                <div class="benefits">
-                    <ul class="list-benefits">
-                        <li>séance engagement</li>
-                        <li>Day after 5h</li>
-                        <li>make up mariée </li>
-                        <li>Post-traitement</li>
-                        <li>supports digitaux</li>
-                        <li>Galerie privée</li>
-                        <li>diaporama</li>
-
-                    </ul>
-                </div>
-                <a href="#form" class="btn">contact</a>
+        </section>
+        <!-- section prices 2  wedding -->
+        <section id="wedding-prices" class="portraitPrices container">
+            <div>
+                <h2 class="pack-title">packs mariage</h2>
             </div>
-            <!-- mariage topaze -->
-            <div class="card">
-                <div class="header-card gray">
-                    <h3>Mariage topaze*</h3>
-                    <p class="header-content">Shooting: 1/2 journée</p>
-                </div>
-                <div class="card-price">
-                    <span class="price money">€</span>
-                    <p class="price">799</p>
-                </div>
-                <div class="benefits">
-                    <ul class="list-benefits">
-                        <li class="barred">séance engagement</li>
-                        <li class="barred">Day after 5h</li>
-                        <li>make up mariée </li>
-                        <li>Post-traitement</li>
-                        <li>supports digitaux</li>
-                        <li>Galerie privée</li>
-                        <li>diaporama</li>
+            <div class="container-card container">
+                <!-- mariage gold -->
+                <div class="card">
+                    <div class="header-card title-white">
+                        <h3>Mariage gold*</h3>
+                        <p class="header-content">Shooting: journée</p>
+                    </div>
+                    <div class="card-price">
+                        <span class="price money">€</span>
+                        <p class="price">1899</p>
+                    </div>
+                    <div class="benefits">
+                        <ul class="list-benefits">
+                            <li>séance engagement</li>
+                            <li>Day after 5h</li>
+                            <li>make up mariée </li>
+                            <li>Post-traitement</li>
+                            <li>supports digitaux</li>
+                            <li>Galerie privée</li>
+                            <li>diaporama</li>
 
-                    </ul>
+                        </ul>
+                    </div>
+                    <a href="#form" class="btn">contact</a>
                 </div>
-                <a href="#form" class="btn">contact</a>
+                <!-- mariage topaze -->
+                <div class="card">
+                    <div class="header-card gray">
+                        <h3>Mariage topaze*</h3>
+                        <p class="header-content">Shooting: 1/2 journée</p>
+                    </div>
+                    <div class="card-price">
+                        <span class="price money">€</span>
+                        <p class="price">799</p>
+                    </div>
+                    <div class="benefits">
+                        <ul class="list-benefits">
+                            <li class="barred">séance engagement</li>
+                            <li class="barred">Day after 5h</li>
+                            <li>make up mariée </li>
+                            <li>Post-traitement</li>
+                            <li>supports digitaux</li>
+                            <li>Galerie privée</li>
+                            <li>diaporama</li>
+
+                        </ul>
+                    </div>
+                    <a href="#form" class="btn">contact</a>
+                </div>
+
+                <!-- mariage saphir -->
+                <div class="card">
+                    <div class="header-card title-white">
+                        <h3>mariage saphir*</h3>
+                        <p class="header-content">Shooting: journée</p>
+                    </div>
+                    <div class="card-price">
+                        <span class="price money">€</span>
+                        <p class="price">1499</p>
+                    </div>
+                    <div class="benefits">
+                        <ul class="list-benefits">
+                            <li>séance engagement</li>
+                            <li class="barred">Day after 5h</li>
+                            <li>make up mariée </li>
+                            <li>Post-traitement</li>
+                            <li>supports digitaux</li>
+                            <li>Galerie privée</li>
+                            <li>diaporama</li>
+
+                        </ul>
+                    </div>
+                    <a href="#form" class="btn">contact</a>
+                </div>
             </div>
 
-            <!-- mariage saphir -->
-            <div class="card">
-                <div class="header-card title-white">
-                    <h3>mariage saphir*</h3>
-                    <p class="header-content">Shooting: journée</p>
-                </div>
-                <div class="card-price">
-                    <span class="price money">€</span>
-                    <p class="price">1499</p>
-                </div>
-                <div class="benefits">
-                    <ul class="list-benefits">
-                        <li>séance engagement</li>
-                        <li class="barred">Day after 5h</li>
-                        <li>make up mariée </li>
-                        <li>Post-traitement</li>
-                        <li>supports digitaux</li>
-                        <li>Galerie privée</li>
-                        <li>diaporama</li>
-
-                    </ul>
-                </div>
-                <a href="#form" class="btn">contact</a>
-            </div>
-        </div>
-
-    </section>
-    <!-- section description 1 -->
-    <section class="wedding" id="wedding">
-        <div class="container-corporate container">
+        </section>
+        <!-- section description 1 -->
+        <section class="wedding" id="wedding">
+            <div class="container-corporate container">
 
 
-            <div class="picture">
-                <img src="./assets/images/portrait-mariage.jpg" srcset="./assets/images/portrait-mariage-phone.webp 490w,
+                <div class="picture">
+                    <img src="./assets/images/portrait-mariage.jpg" srcset="./assets/images/portrait-mariage-phone.webp 490w,
              ./assets/images/portrait-mariage.jpg 980w" sizes="(max-width: 768px) 490px, 980px" loading="lazy"
-                    alt="portrait mariage" width="490" height="490">
+                        alt="portrait mariage" width="490" height="490">
+                </div>
+
+                <div class="article">
+                    <h3> Mariage : L'Art de Capturer l'Émotion </h3>
+                    <p>Un regard, une alchimie. Sélectionnez un artiste dont l'œil saisit votre essence. Expertise
+                        technique
+                        et sensibilité humaine fusionnent pour créer l'album de vos rêves.</p>
+                    <p>Lumière naturelle envoûtante, cadrages cinématographiques, poses décomplexées. Méthodes discrètes
+                        pour des images vivantes, où chaque sourire raconte une histoire..</p>
+                    <p>Noir & blanc intemporel ou couleurs romantiques : une signature visuelle transforme l'éphémère en
+                        héritage. Investissement pour des émotions qui traversent le temps.</p>
+                </div>
+
+
+
+
+
             </div>
 
-            <div class="article">
-                <h3> Mariage : L'Art de Capturer l'Émotion </h3>
-                <p>Un regard, une alchimie. Sélectionnez un artiste dont l'œil saisit votre essence. Expertise
-                    technique
-                    et sensibilité humaine fusionnent pour créer l'album de vos rêves.</p>
-                <p>Lumière naturelle envoûtante, cadrages cinématographiques, poses décomplexées. Méthodes discrètes
-                    pour des images vivantes, où chaque sourire raconte une histoire..</p>
-                <p>Noir & blanc intemporel ou couleurs romantiques : une signature visuelle transforme l'éphémère en
-                    héritage. Investissement pour des émotions qui traversent le temps.</p>
+        </section>
+        <!-- chargements des articles avaec paginatio, -->
+        <section class="articles-section container" id="sectionArticles">
+            <h2>Nos Articles</h2>
+            <div id="articles-container">
+
             </div>
+        </section>
+
+        <section class="contact container" id="contactUs">
+
+            <div class="contact-describe">
+                <h2 class="under">contact</h2>
+                <div class="contact-content">
+                    <p><strong>Enchantée !</strong></p>
+                    <p>Basée dans les Côtes-d’Armor, je me déplace avec plaisir dans toute la Bretagne ainsi que dans le
+                        Pas-de-Calais.</p>
+                    <p>Chaque prestation est accompagnée d’un contrat clair, pour que tout soit simple et transparent :
+                        modalités de paiement, droits à l’image et droits d’auteur sont définis dès le départ.</p>
+                    <p><strong>Parlez-moi de votre projet !</strong></p>
+                    <p>Remplissez le formulaire ci-joint et je vous répondrai rapidement pour que nous puissions donner
+                        vie
+                        à vos idées.</p>
+                </div>
 
 
 
-
-
-        </div>
-
-    </section>
-    <!-- chargements des articles avaec paginatio, -->
-    <section class="articles-section container" id="sectionArticles">
-        <h2>Nos Articles</h2>
-        <div id="articles-container">
-
-        </div>
-    </section>
-
-    <section class="contact container" id="contactUs">
-
-        <div class="contact-describe">
-            <h2 class="under">contact</h2>
-            <div class="contact-content">
-                <p><strong>Enchantée !</strong></p>
-                <p>Basée dans les Côtes-d’Armor, je me déplace avec plaisir dans toute la Bretagne ainsi que dans le
-                    Pas-de-Calais.</p>
-                <p>Chaque prestation est accompagnée d’un contrat clair, pour que tout soit simple et transparent :
-                    modalités de paiement, droits à l’image et droits d’auteur sont définis dès le départ.</p>
-                <p><strong>Parlez-moi de votre projet !</strong></p>
-                <p>Remplissez le formulaire ci-joint et je vous répondrai rapidement pour que nous puissions donner
-                    vie
-                    à vos idées.</p>
             </div>
+            <form action="./app/users/traitement.php" method="post" class="contact-form" id="form">
+                <div class="form-row">
+
+                    <input type="text" name="prenom" placeholder="Prénom*">
+                    <input type="text" name="nom" placeholder="Nom*">
+                </div>
+                <!-- comme pas d'id navigateur demande un attribut autocomplete -->
+                <input type="email" name="email" placeholder="Email*" autocomplete="on">
+                <label for="objet_demande">Objet de votre demande</label>
+                <select name="objet_demande" id="objet_demande">
+                    <option value="">Objet de votre demande</option>
+                    <option value="Portrait">Portrait</option>
+                    <option value="Portrait Corporate">Portrait Corporate</option>
+                    <option value="mariage">Mariage</option>
+                    <option value="devis">Devis</option>
+                    <option value="autre">Autre</option>
+                </select>
+                <label for="date_evenement">Date evenement</label>
+                <input type="date" name="date_evenement" id="date_evenement">
+
+                <textarea name="message" id="mess" placeholder="Votre message*" rows="5"></textarea>
+
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
 
 
-
-        </div>
-        <form action="./app/users/traitement.php" method="post" class="contact-form" id="form">
-            <div class="form-row">
-
-                <input type="text" name="prenom" placeholder="Prénom*">
-                <input type="text" name="nom" placeholder="Nom*">
-            </div>
-            <!-- comme pas d'id navigateur demande un attribut autocomplete -->
-            <input type="email" name="email" placeholder="Email*" autocomplete="on">
-            <label for="objet_demande">Objet de votre demande</label>
-            <select name="objet_demande" id="objet_demande">
-                <option value="">Objet de votre demande</option>
-                <option value="Portrait">Portrait</option>
-                <option value="Portrait Corporate">Portrait Corporate</option>
-                <option value="mariage">Mariage</option>
-                <option value="devis">Devis</option>
-                <option value="autre">Autre</option>
-            </select>
-            <label for="date_evenement">Date evenement</label>
-            <input type="date" name="date_evenement" id="date_evenement">
-
-            <textarea name="message" id="mess" placeholder="Votre message*" rows="5"></textarea>
-
-            <button type="submit" class="btn">Envoyer</button>
-        </form>
-
-
-    </section>
+        </section>
+    </main>
     <div class="google-map container">
 
         <div class="iframe-container">
-            <title>Nous situer</title>
-            <iframe class="map-filter" title="nous situer"
+
+            <iframe class="map-filter" title="Nous situer - Localisation du photographe à Ardres"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2517.620863237251!2d1.9746709123190804!3d50.87521837155832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47dc442dfac6fc17%3A0x894c030c3b974a5d!2s594%20Av.%20du%20Rossignol%2C%2062610%20Ardres!5e0!3m2!1sfr!2sfr!4v1754735433080!5m2!1sfr!2sfr"
                 width="600" height="300" style="border:0;" allow="fullscreen" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>

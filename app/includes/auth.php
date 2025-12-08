@@ -1,7 +1,10 @@
 <?php
 function checkAdminAuth()
 {
-    session_start();
+    // Démarre la session seulement si pas déjà démarrée évite un session-start en double
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
     // Vérifier si l'admin est connecté
     if (!isset($_SESSION['admin_id']) || empty($_SESSION['admin_id'])) {

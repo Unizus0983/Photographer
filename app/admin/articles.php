@@ -1,5 +1,8 @@
 <?php
+
 require_once '../includes/config.php';
+require_once '../includes/auth.php';
+checkAdminAuth();
 
 // Système unifié de messages
 $message_success = "";
@@ -28,8 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         $message = "Le formulaire est incomplet - titre et contenu sont obligatoires";
     } else {
         $titre = strip_tags($titre);
-        $titre = ucwords(mb_strtolower($titre, 'UTF-8'));
-
+        $titre = ucwords(strtolower($titre));
         $imageName = null;
 
         // Vérification upload image
@@ -54,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                     'webp' => 'image/webp'
                 ];
 
-                $filename  = $_FILES['image']["name"];
+                $filename  = basename($_FILES['image']["name"]);
                 $filesize  = $_FILES['image']["size"];
                 $fileTmp   = $_FILES['image']['tmp_name'];
                 $extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
@@ -66,7 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                     // Vérification MIME
                     $finfo = finfo_open(FILEINFO_MIME_TYPE);
                     $realMime = finfo_file($finfo, $fileTmp);
-                    // finfo_close($finfo);
+                    // finfo_close($finfo);auto en PHP 
+                    $finfo = null;
 
                     if (!in_array($realMime, array_values($allowed))) {
                         $message = "Type MIME incorrect ($realMime)";

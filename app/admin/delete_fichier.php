@@ -1,6 +1,8 @@
 <?php
-session_start();
+// session_start();déjà présente dans le fichier config
 require_once '../includes/config.php';
+require_once '../includes/auth.php';
+checkAdminAuth();
 
 // Vérification admin avec le nouveau système
 if (!isset($_SESSION['admin_id'])) {
@@ -18,8 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
         $fichier = $stmt->fetch();
 
         if ($fichier) {
-            // Supprimer le fichier physique
-            $cheminFichier = '../uploads/' . $fichier['nom_fichier'];
+            // Supprimer le fichier physique ligne 22 ajout le 1.12.25
+            $nomFichier = basename($fichier['nom_fichier']);
+            $cheminFichier = '../uploads/' . $nomFichier;
             if (file_exists($cheminFichier)) {
                 unlink($cheminFichier);
             }

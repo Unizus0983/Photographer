@@ -1,11 +1,13 @@
 <?php
-session_start();
-require_once '../includes/config.php';
 
-if (!isset($_SESSION['admin_id'])) {
-    header('Location: login.php');
-    exit();
-}
+require_once '../includes/config.php';
+require_once '../includes/auth.php';
+checkAdminAuth();
+
+// if (!isset($_SESSION['admin_id'])) {
+//     header('Location: login.php');
+//     exit();
+// }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $id = (int) $_POST['id'];

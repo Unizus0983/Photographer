@@ -2,6 +2,8 @@
 
 
 require_once '../includes/config.php';
+require_once '../includes/auth.php';
+checkAdminAuth();
 
 // Système unifié de messages
 $message_success = "";
@@ -42,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'webp' => 'image/webp'
         ];
 
-        $filename  = $_FILES['fichier']["name"];
+        $filename  = basename($_FILES['fichier']["name"]);
         $filesize  = $_FILES['fichier']["size"];
         $fileTmp   = $_FILES['fichier']['tmp_name'];
         $tailleKo  = round($filesize / 1024, 2);
@@ -59,6 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $finfo = finfo_open(FILEINFO_MIME_TYPE);
             $realMime = finfo_file($finfo, $fileTmp);
             // finfo_close($finfo);
+
+            $finfo = null;
 
             if (!in_array($realMime, array_values($allowed))) {
                 $message = "Type MIME incorrect ($realMime)";
