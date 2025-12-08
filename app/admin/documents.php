@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (empty($message)) {
             $finfo = finfo_open(FILEINFO_MIME_TYPE);
             $realMime = finfo_file($finfo, $fileTmp);
-            finfo_close($finfo);
+            // finfo_close($finfo);
 
             if (!in_array($realMime, array_values($allowed))) {
                 $message = "Type MIME incorrect ($realMime)";

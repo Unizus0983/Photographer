@@ -13,6 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $titre = trim($_POST['titre']);
     $contenu = trim($_POST['contenu']);
 
+    // 🟢 Capitalization propre (Première lettre chaque mot)
+    $titre = strip_tags($titre);
+    $titre = ucwords(strtolower($titre));
+
+
     // Validation
     if (empty($titre) || empty($contenu)) {
         $_SESSION['error_message'] = "Le titre et le contenu sont obligatoires"; // ← STANDARD

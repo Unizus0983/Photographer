@@ -1342,6 +1342,7 @@ label {
     font-size: var(--text-2xl);
     text-align: center;
 }
+
 .content_article h2,
 .content_article h3 {
     text-align: left;

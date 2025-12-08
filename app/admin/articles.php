@@ -27,7 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     if (empty($titre) || empty($contenu)) {
         $message = "Le formulaire est incomplet - titre et contenu sont obligatoires";
     } else {
-        $titre = strtoupper(strip_tags($titre));
+        $titre = strip_tags($titre);
+        $titre = ucwords(mb_strtolower($titre, 'UTF-8'));
+
         $imageName = null;
 
         // Vérification upload image
@@ -64,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                     // Vérification MIME
                     $finfo = finfo_open(FILEINFO_MIME_TYPE);
                     $realMime = finfo_file($finfo, $fileTmp);
-                    finfo_close($finfo);
+                    // finfo_close($finfo);
 
                     if (!in_array($realMime, array_values($allowed))) {
                         $message = "Type MIME incorrect ($realMime)";
