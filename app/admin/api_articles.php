@@ -2,7 +2,7 @@
 
 //permet de renvoyer les données qui seront appelés en js 
 header('Content-Type: application/json');
-// Pour permettre à n'importe quelle ressource d'accéder à vos ressources car pas d'adresse du serveur pour les données hormis localhost, site non connecté
+// Pour permettre à n'importe quelle ressource d'accéder à vos ressources car pas d'adresse du serveur pour les données hormis localhost, site non connecté à une base de données hebergée
 header('Access-Control-Allow-Origin: *');
 require_once '../includes/connect.php';
 
