@@ -776,9 +776,15 @@ p .strong {
 
     margin: 0 auto;
     overflow: hidden;
-    aspect-ratio: 16/9; /* Ratio constant */
-    height: 45vh; /* Plus raisonnable sur mobile */
-    max-height: 300px; /* Limite pour éviter trop grand */
+    /* Ratio constant */
+    aspect-ratio: 600/337;
+    /* Plus raisonnable sur mobile */
+    height: 45vh;
+    max-height: 280px; /* Limite pour éviter trop grand */
+    width: 100%;
+    /* OPTIMISATION */
+    contain: layout style; /* Limite les reflows */
+    will-change: transform; /* Prépare animations */
 }
 
 .slider-track {
@@ -802,6 +808,19 @@ p .strong {
     border-radius: var(--radius);
     display: block; /* Évite l'espace sous l'image */
     background: var(--gray-100); /* Placeholder couleur */
+}
+/* AJOUTE cette règle spécifique */
+.slide img {
+    /* Annule les conflits avec tes règles globales */
+    max-inline-size: 100% !important;
+    max-block-size: 100% !important;
+
+    /* Optimisations GPU */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+
+    /* Évite les reflows de chargement */
+    content-visibility: auto;
 }
 
 .slide-content {
@@ -1385,6 +1404,7 @@ label {
     max-width: fit-content;
     width: 70%;
 }
+/* règle globale pour prévenir des worflow */
 
 /*********************fin mention légale********************/
 
@@ -1410,7 +1430,9 @@ label {
     }
     .slider-container {
         height: 60vh;
-        max-height: 337px;
+        max-height: 337px; /* Hauteur max = taille image */
+        max-width: 600px; /* Recentrage */
+        margin: 0 auto;
     }
 }
 
@@ -1476,7 +1498,7 @@ label {
     }
 }
 
-/* Desktop (1024px et plus) */
+/*======== Desktop (1024px et plus)============== */
 @media (min-width: 1024px) {
     h1 {
         font-size: var(--text-h1);
@@ -1508,7 +1530,7 @@ label {
         justify-content: center;
     }
 }
-/* Très grands écrans (≥1200px) */
+/* ===========Très grands écrans (≥1200px)============ */
 @media (min-width: 1200px) {
     .container {
         max-width: 1200px;
